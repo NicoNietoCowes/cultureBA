@@ -6,6 +6,9 @@ Parameters:
     Type: String
     Default: prod
     AllowedValues: [prod, staging]
+  CertificateArn:
+    Type: String
+    Description: ACM Certificate ARN for the custom domain
 
 Resources:
   S3Bucket:
@@ -54,7 +57,7 @@ Resources:
           - culturebastudio.com
           - www.culturebastudio.com
         ViewerCertificate:
-          AcmCertificateArn: arn:aws:acm:us-east-1:585652023141:certificate/9ccd912c-b5ec-49d6-b527-3260fe06bc33
+          AcmCertificateArn: !Ref CertificateArn
           SslSupportMethod: sni-only
           MinimumProtocolVersion: TLSv1.2_2021
         PriceClass: PriceClass_100
