@@ -50,6 +50,13 @@ Resources:
         Enabled: true
         DefaultRootObject: index.html
         HttpVersion: http2
+        Aliases:
+          - culturebastudio.com
+          - www.culturebastudio.com
+        ViewerCertificate:
+          AcmCertificateArn: arn:aws:acm:us-east-1:585652023141:certificate/9ccd912c-b5ec-49d6-b527-3260fe06bc33
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
         PriceClass: PriceClass_100
         Origins:
           - Id: S3Origin
