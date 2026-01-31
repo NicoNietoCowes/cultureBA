@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CULTUREBA | Estudio All In One</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #050505; 
+            color: #ffffff; 
+            overflow-x: hidden; 
+        }
+
+        /* DEGRADADOS */
+        .logo-gradient-text {
+            background: linear-gradient(90deg, #F58220 0%, #BC204B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .group:hover .hover-gradient-text {
+            background: linear-gradient(90deg, #F58220 0%, #BC204B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-gradient {
+            background: linear-gradient(90deg, #F58220 0%, #BC204B 100%);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-gradient:hover { transform: scale(1.05); box-shadow: 0 0 20px rgba(188,32,75,0.5); }
+
+        /* TARJETAS */
+        .card-hover {
+            transition: all 0.3s ease;
+            border: 1px solid transparent; 
+            background-color: #18181b; 
+        }
+        .card-hover:hover {
+            border-color: #F58220; 
+            transform: translateY(-3px); 
+        }
+        .card-hover img { transition: all 0.5s ease; filter: grayscale(100%); }
+        .card-hover:hover img { filter: grayscale(0%); }
+
+        /* --- LÓGICA DE DESPLIEGUE BLINDADA --- */
+        .service-detail { 
+            max-height: 0; 
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-item:hover .service-detail { 
+            max-height: 2500px; 
+            opacity: 1;
+            padding-top: 100px; 
+            padding-bottom: 40px;
+        }
+
+        /* ANIMACIÓN SCROLL */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+        .scroll-down { animation: bounce 2s infinite; }
+    </style>
+</head>
+<body>
+
+    <section class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-60">
+            <source src="loop.mp4" type="video/mp4">
+        </video>
+        
+        <div class="absolute top-0 left-0 w-full h-full bg-black/40 z-0"></div>
+
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-orange-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse z-0"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 z-0"></div>
+        
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-6xl md:text-9xl font-black tracking-tighter italic leading-none mb-4">
+                <span class="text-white block md:inline">ESTUDIO</span> 
+                <span class="logo-gradient-text block md:inline">ALL IN ONE.</span>
+            </h1>
+            <p class="text-gray-400 mt-4 text-lg md:text-xl font-light tracking-widest uppercase">Buenos Aires</p>
+        </div>
+
+        <div class="absolute bottom-10 z-10 flex flex-col items-center scroll-down opacity-70">
+            <span class="text-xs tracking-widest mb-2 text-gray-500">SCROLL DOWN</span>
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 md:px-20 max-w-7xl mx-auto relative z-10 bg-black">
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl md:text-6xl font-black leading-tight mb-8 uppercase text-white">
+                    Un refugio para la <span class="logo-gradient-text">creación</span>.
+                </h2>
+                <div class="text-lg md:text-xl text-gray-300 space-y-6 font-light">
+                    <p>En <strong>Cultureba</strong>, creemos que el arte solo florece en libertad. Este espacio es nuestra zona segura.</p>
+                    <p>Somos un movimiento de artistas, productores y DJs convencidos de que el proceso es tan importante como el resultado.</p>
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center gap-4"><span class="w-2 h-2 bg-orange-500 rounded-full"></span><span>Libertad de expresión total.</span></div>
+                        <div class="flex items-center gap-4"><span class="w-2 h-2 bg-pink-600 rounded-full"></span><span>Comodidad absoluta para crear.</span></div>
+                        <div class="flex items-center gap-4"><span class="w-2 h-2 bg-white rounded-full"></span><span>Excelencia técnica con calidez humana.</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <img src="foto1.jpg" class="rounded-xl opacity-80 hover:opacity-100 transition duration-500 object-cover h-72 w-full bg-zinc-900">
+                <img src="foto2.jpg" class="rounded-xl opacity-80 hover:opacity-100 transition duration-500 object-cover h-72 w-full mt-12 bg-zinc-900">
+                <img src="foto3.jpg" class="rounded-xl opacity-80 hover:opacity-100 transition duration-500 object-cover h-72 w-full bg-zinc-900">
+                <img src="foto4.jpg" class="rounded-xl opacity-80 hover:opacity-100 transition duration-500 object-cover h-72 w-full mt-12 bg-zinc-900">
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-zinc-950 min-h-screen">
+        
+        <div class="service-item border-b border-gray-800 py-12 group">
+            <h3 class="text-5xl md:text-8xl font-black cursor-pointer text-white hover-gradient-text transition-colors uppercase tracking-tighter">
+                Nuestras Cabinas
+            </h3>
+            <div class="service-detail">
+                <div class="grid md:grid-cols-2 gap-6 px-2"> 
+                    <div class="p-5 rounded-2xl card-hover">
+                        <img src="https://images.unsplash.com/photo-1574169208507-84376144848b?q=80&w=800" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-2xl font-black mb-1 text-white uppercase">CDJ NEXUS</h4>
+                        <p class="text-gray-400 mb-4 text-sm">El estándar mundial. Precisión digital.</p>
+                        <a href="https://turnito.app/c/culturebastudio" target="_blank" class="text-orange-500 font-black tracking-widest text-xs hover:text-white transition">RESERVAR ↗</a>
+                    </div>
+                    <div class="p-5 rounded-2xl card-hover">
+                        <img src="https://images.unsplash.com/photo-1594434533760-02e0f3faaa68?q=80&w=800" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-2xl font-black mb-1 text-white uppercase">TECHNICS 1200</h4>
+                        <p class="text-gray-400 mb-4 text-sm">La leyenda analógica para vinilos.</p>
+                        <a href="https://turnito.app/c/culturebastudio" target="_blank" class="text-pink-500 font-black tracking-widest text-xs hover:text-white transition">RESERVAR ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-item border-b border-gray-800 py-12 group">
+            <h3 class="text-5xl md:text-8xl font-black cursor-pointer text-white hover-gradient-text transition-colors uppercase tracking-tighter">
+                DJ Sets
+            </h3>
+            <div class="service-detail px-2">
+                <p class="text-gray-400 mb-8 text-xl">Últimas sesiones grabadas en el estudio.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-2xl card-hover">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-4">
+                            <iframe src="https://www.youtube.com/embed/z55w-QTo6es" title="JEILI DJ Set" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                        <h4 class="text-xl font-black text-white uppercase">JEILI</h4>
+                    </div>
+                    <div class="p-4 rounded-2xl card-hover">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-4">
+                            <iframe src="https://www.youtube.com/embed/TdBoRjgL8qk" title="THE RED NOISE DJ Set" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                        <h4 class="text-xl font-black text-white uppercase">THE RED NOISE</h4>
+                    </div>
+                    <div class="p-4 rounded-2xl card-hover">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-4">
+                            <iframe src="https://www.youtube.com/embed/4HUDb-e4L0g" title="PARIAH DJ Set" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                        <h4 class="text-xl font-black text-white uppercase">PARIAH</h4>
+                    </div>
+                    <div class="p-4 rounded-2xl card-hover">
+                        <div class="w-full aspect-video rounded-xl overflow-hidden mb-4">
+                            <iframe src="https://www.youtube.com/embed/ApxG3fBH0Ic" title="TUCUMALO DJ Set" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                        </div>
+                        <h4 class="text-xl font-black text-white uppercase">TUCUMALO</h4>
+                    </div>
+                </div>
+                <div class="mt-10 mb-10">
+                     <a href="https://turnito.app/c/culturebastudio" class="btn-gradient px-10 py-4 rounded-full font-black text-lg tracking-wide text-white inline-block hover:scale-105 transition-transform">GRABA TU SESIÓN</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-item border-b border-gray-800 py-12 group">
+            <h3 class="text-5xl md:text-8xl font-black cursor-pointer text-white hover-gradient-text transition-colors uppercase tracking-tighter">
+                Producciones
+            </h3>
+            <div class="service-detail">
+                 <div class="grid md:grid-cols-2 gap-6 px-2">
+                    <div class="p-5 rounded-2xl card-hover">
+                        <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?q=80&w=800" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-2xl font-black mb-1 text-orange-500 uppercase">PARA ARTISTAS</h4>
+                        <p class="text-gray-400 mb-4 text-sm">Producción musical integral, mezcla y mastering.</p>
+                        <a href="https://turnito.app/c/culturebastudio" target="_blank" class="text-white font-black tracking-widest text-xs border-b hover:text-orange-500 transition">CONSULTAR ↗</a>
+                    </div>
+                    <div class="p-5 rounded-2xl card-hover">
+                        <img src="https://images.unsplash.com/photo-1501612780327-45045538702b?q=80&w=800" class="w-full h-48 object-cover rounded-xl mb-4">
+                        <h4 class="text-2xl font-black mb-1 text-pink-500 uppercase">LIVE SESSIONS</h4>
+                        <p class="text-gray-400 mb-4 text-sm">Captura tu banda en vivo con audio y video 4K.</p>
+                        <a href="https://turnito.app/c/culturebastudio" target="_blank" class="text-white font-black tracking-widest text-xs border-b hover:text-pink-500 transition">CONSULTAR ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-item border-b border-gray-800 py-12 group">
+            <h3 class="text-5xl md:text-8xl font-black cursor-pointer text-white hover-gradient-text transition-colors uppercase tracking-tighter">
+                Rental
+            </h3>
+            <div class="service-detail px-2">
+                <p class="text-gray-400 mb-8 text-lg">Equipamiento disponible para tus eventos externos.</p>
+                <ul class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-gray-300 font-mono text-sm mb-8">
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">CDJ 3000 + Mixer Pioneer A9</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">Bandeja Vinilo + Mixer Technics SL-1200 MK2</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">Caja Activa 15” dbTechnologies KL15</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">Sub Act. 18” PreSonus AIR18s</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">Mixer 8CH PreSonus AR12c</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">Caja 15 PASIVO + potencia y EQ</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">JBL - Carver JRX200 - px850</li>
+                    <li class="border border-zinc-800 p-4 rounded text-center hover:border-white transition cursor-default flex items-center justify-center">EV + potencia y EQ</li>
+                </ul>
+                
+                <div class="mt-8 mb-8 text-center">
+                     <a href="https://turnito.app/c/culturebastudio" target="_blank" class="btn-gradient px-10 py-4 rounded-full font-black text-lg tracking-wide text-white inline-block hover:scale-105 transition-transform">CONSULTAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-24 text-center px-6 bg-black border-t border-zinc-900">
+        <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-8">
+            <img src="cultureba.png" alt="CULTUREBA" class="h-10 md:h-12 object-contain opacity-90 hover:opacity-100 transition">
+
+            <span class="hidden md:block text-zinc-800 text-3xl font-light">/</span>
+
+            <span class="text-white font-black text-sm md:text-base tracking-widest uppercase opacity-90 hover:opacity-100 transition">CULTUREBA BUENOS AIRES STUDIO</span>
+
+            <span class="hidden md:block text-zinc-800 text-3xl font-light">/</span>
+
+            <img src="casual.png" alt="CASUAL ORG" class="h-20 md:h-24 object-contain opacity-90 hover:opacity-100 transition">
+        </div>
+        
+        <p class="max-w-xl mx-auto text-gray-500 mb-12 italic text-lg">
+            "Un movimiento cultural de artistas y para artistas. <br> Un lugar para el crecimiento y el desarrollo. Un hogar."
+        </p>
+        <a href="https://turnito.app/c/culturebastudio" class="btn-gradient fixed bottom-6 right-6 z-50 px-6 py-4 rounded-full font-black text-white shadow-2xl flex items-center gap-2 hover:scale-105 transition-transform">
+            <span>RESERVAR ESPACIO</span>
+        </a>
+        <p class="text-xs text-zinc-800 mt-10 font-mono">© 2026 CULTUREBA. BUENOS AIRES.</p>
+    </footer>
+
+</body>
+</html>
